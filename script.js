@@ -22,7 +22,7 @@ function playRound(humanChoice, computerChoice){
     console.log("Computer chooses: " + computerChoice);
     if (humanChoice == computerChoice){
         console.log("Tie!")
-        //playRound();
+        playRound(getHumanChoice(), getComputerChoice());
     } else if (humanChoice == "rock" && computerChoice != "paper"){
         console.log("Human won.");
         humanScore++;
