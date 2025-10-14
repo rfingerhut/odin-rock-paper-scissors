@@ -22,7 +22,6 @@ function playRound(humanChoice, computerChoice){
     console.log("Computer chooses: " + computerChoice);
     if (humanChoice == computerChoice){
         console.log("Tie!")
-        playRound(getHumanChoice(), getComputerChoice());
     } else if (humanChoice == "rock" && computerChoice != "paper"){
         console.log("Human won.");
         humanScore++;
@@ -45,5 +44,16 @@ function playGame(){
     
 }
 
-playGame();
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorBtn = document.querySelector('#scissor');
 
+rockBtn.addEventListener('click', () => {
+    playRound('rock', getComputerChoice());
+});
+paperBtn.addEventListener('click', () => {
+    playRound('paper', getComputerChoice())
+});
+scissorBtn.addEventListener('click', () => {
+    playRound('scissors', getComputerChoice());
+});
