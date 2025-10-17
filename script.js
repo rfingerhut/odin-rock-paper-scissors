@@ -3,6 +3,11 @@ const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorBtn = document.querySelector('#scissors');
 
+const roundBox = document.querySelector('#round');
+const roundNum = document.createElement('p');
+
+
+
 rockBtn.addEventListener('click', () => {
     playRound('rock', getComputerChoice());
 });
@@ -25,21 +30,24 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    let choice = prompt("Enter Rock, Paper, or Scissors: ").toLowerCase();
-    return choice;
-}
-
 let humanScore = 0;
 let computerScore = 0;
+const round = document.querySelector('#round');
+const hScore = document.createElement('p');
+const cScore = document.createElement('p');
+
+function updateRunningScore(humanScore, computerScore){
+    hScore.textContent = humanScore;
+    cScore.textContent = computerScore;
+    round.append(hScore, cScore);
+}
 
 function playRound(humanChoice, computerChoice){
     let winner = '';
     console.log("Human chooses: " + humanChoice);
     console.log("Computer chooses: " + computerChoice);
     if (humanChoice == computerChoice){
-        console.log("Tie!");
-        winner = 'Tie!';
+    
     } else if (humanChoice == "rock" && computerChoice != "paper"){
         console.log("Human won.");
         humanScore++;
@@ -57,7 +65,8 @@ function playRound(humanChoice, computerChoice){
         computerScore++;
         winner = 'Computer';
     }
-    addResult(winner);
+    addResult(humanChoice, computerChoice, winner);
+    updateRunningScore(humanScore, computerScore);
 }
 
 function playGame(){
@@ -66,9 +75,12 @@ function playGame(){
     Computer score: ${computerScore}`);
 }
 
-function addResult(winner){
-    const result = document.createElement('p');
-    result.textContent = winner;
+const result = document.createElement('p');
+
+function addResult(humanChoice, computerChoice, winner){
+    result.textContent = `You chose ${humanChoice}.
+    Computer chose ${computerChoice}.
+    The winner is ${winner}`;
     resultBox.appendChild(result);
 }
 
