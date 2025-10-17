@@ -10,6 +10,7 @@ const roundNum = document.createElement('p');
 
 rockBtn.addEventListener('click', () => {
     playRound('rock', getComputerChoice());
+    checkScore();
 });
 
 paperBtn.addEventListener('click', () => {
@@ -32,14 +33,28 @@ function getComputerChoice(){
 
 let humanScore = 0;
 let computerScore = 0;
-const round = document.querySelector('#round');
+const runningScore = document.querySelector('#runningScore');
 const hScore = document.createElement('p');
 const cScore = document.createElement('p');
 
 function updateRunningScore(humanScore, computerScore){
-    hScore.textContent = humanScore;
-    cScore.textContent = computerScore;
-    round.append(hScore, cScore);
+    hScore.textContent = `Your score: ${humanScore}`;
+    cScore.textContent = `Computer's score: ${computerScore}`;
+    runningScore.append(hScore, cScore);
+}
+
+function checkScore(){
+    if (humanScore == 5 || computerScore == 5){
+        if (humanScore > computerScore){
+            winner = 'human';
+        } else {
+            winner = 'computer';
+        }
+        gameWonMessage(winner);
+        // CHange to play again function.
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
 
 function playRound(humanChoice, computerChoice){
@@ -47,7 +62,7 @@ function playRound(humanChoice, computerChoice){
     console.log("Human chooses: " + humanChoice);
     console.log("Computer chooses: " + computerChoice);
     if (humanChoice == computerChoice){
-    
+
     } else if (humanChoice == "rock" && computerChoice != "paper"){
         console.log("Human won.");
         humanScore++;
@@ -71,8 +86,6 @@ function playRound(humanChoice, computerChoice){
 
 function playGame(){
     playRound(getHumanChoice(), getComputerChoice());
-    console.log(`Human score: ${humanScore}
-    Computer score: ${computerScore}`);
 }
 
 const result = document.createElement('p');
@@ -82,5 +95,10 @@ function addResult(humanChoice, computerChoice, winner){
     Computer chose ${computerChoice}.
     The winner is ${winner}`;
     resultBox.appendChild(result);
+}
+
+function gameWonMessage(winner){
+    result.textContent = `Game over! The winner is the ${winner}!`;
+    resultBox.append(result);
 }
 
