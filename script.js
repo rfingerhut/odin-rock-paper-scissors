@@ -1,4 +1,6 @@
-const resultBox = document.querySelector("#results");
+const computerResult = document.querySelector("#computerChoice");
+
+const buttonBox = document.querySelector('#buttonBox');
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorBtn = document.querySelector('#scissors');
@@ -6,11 +8,10 @@ const scissorBtn = document.querySelector('#scissors');
 const roundBox = document.querySelector('#round');
 const roundNum = document.createElement('p');
 
-const gameResultBox = document.querySelector('#gameResult');
+const gameResultBox = document.querySelector('#endOfGame');
 const gameResult = document.createElement('p');
 const playAgainButton = document.createElement('button');
 playAgainButton.id = 'playAgain';
-const buttonBox = document.querySelector('#choice');
 
 let humanScore = 0;
 let computerScore = 0;
@@ -22,6 +23,7 @@ const tScore = document.createElement('p');
 
 const computerChoiceElement = document.createElement('p');
 
+
 rockBtn.addEventListener('click', () => {
     playRound('rock', getComputerChoice());
     checkScore();
@@ -30,9 +32,14 @@ rockBtn.addEventListener('click', () => {
 paperBtn.addEventListener('click', () => {
     playRound('paper', getComputerChoice())
 });
+
 scissorBtn.addEventListener('click', () => {
     playRound('scissors', getComputerChoice());
 });
+
+playAgainButton.addEventListener('click', () => {
+    playGame();
+})
 
 function getComputerChoice(){
     let choice = Math.random();
@@ -70,14 +77,9 @@ function playRound(humanChoice, computerChoice){
     updateRunningScore(humanScore, computerScore, tieScore);
 }
 
-// function playGame(){
-//     playRound(getHumanChoice(), getComputerChoice());
-// }
-
-
 function addComputerResult(computerChoice){
     computerChoiceElement.textContent = `Computer chose ${computerChoice}.`;
-    resultBox.appendChild(computerChoiceElement);
+ computerResult.appendChild(computerChoiceElement);
 }
 
 function updateRunningScore(humanScore, computerScore){
@@ -96,7 +98,7 @@ function checkScore(){
         } else {
             winner = 'computer';
         }
-        gameWonMessage(winner);
+        gameWonMessage(winner);   
         humanScore = 0;
         computerScore = 0;
         tieScore = 0;
@@ -104,11 +106,19 @@ function checkScore(){
 }
 
 function gameWonMessage(winner){
-    resultBox.remove();
-    buttonBox.remove();
+ computerResult.classList.add('hidden');
+    buttonBox.classList.add('hidden');
+    gameResultBox.classList.remove('hidden');
     gameResult.textContent = `Game over! The winner is the ${winner}.`;
     playAgainButton.textContent = 'Play Again';
     gameResultBox.appendChild(gameResult);
     gameResultBox.appendChild(playAgainButton);
 }
 
+function playGame(){
+    computerChoiceElement.textContent = '';
+ computerResult.classList.remove('hidden');
+    buttonBox.classList.remove('hidden');
+    gameResultBox.classList.add('hidden');
+    updateRunningScore(0, 0, 0);
+}
