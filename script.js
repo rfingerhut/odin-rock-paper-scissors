@@ -41,20 +41,21 @@ function updateRunningScore(humanScore, computerScore){
     hScore.textContent = `Your score: ${humanScore}`;
     cScore.textContent = `Computer's score: ${computerScore}`;
     runningScore.append(hScore, cScore);
+    checkScore();
 }
 
 function checkScore(){
     if (humanScore == 5 || computerScore == 5){
+        console.log('EQUAL FIVE');
         if (humanScore > computerScore){
             winner = 'human';
         } else {
             winner = 'computer';
         }
         gameWonMessage(winner);
-        // CHange to play again function.
         humanScore = 0;
         computerScore = 0;
-    }
+    } 
 }
 
 function playRound(humanChoice, computerChoice){
@@ -80,7 +81,7 @@ function playRound(humanChoice, computerChoice){
         computerScore++;
         winner = 'Computer';
     }
-    addResult(humanChoice, computerChoice, winner);
+    addComputerResult(computerChoice);
     updateRunningScore(humanScore, computerScore);
 }
 
@@ -88,17 +89,25 @@ function playGame(){
     playRound(getHumanChoice(), getComputerChoice());
 }
 
-const result = document.createElement('p');
+const computerChoiceElement = document.createElement('p');
 
-function addResult(humanChoice, computerChoice, winner){
-    result.textContent = `You chose ${humanChoice}.
-    Computer chose ${computerChoice}.
-    The winner is ${winner}`;
-    resultBox.appendChild(result);
+function addComputerResult(computerChoice){
+    computerChoiceElement.textContent = `Computer chose ${computerChoice}.`;
+    resultBox.appendChild(computerChoiceElement);
 }
 
+const gameResultBox = document.querySelector('#gameResult');
+const gameResult = document.createElement('p');
+const playAgainButton = document.createElement('button');
+playAgainButton.id = 'playAgain';
+const buttonBox = document.querySelector('#choice');
+
 function gameWonMessage(winner){
-    result.textContent = `Game over! The winner is the ${winner}!`;
-    resultBox.append(result);
+    resultBox.remove();
+    buttonBox.remove();
+    gameResult.textContent = `Game over! The winner is the ${winner}.`;
+    playAgainButton.textContent = 'Play Again';
+    gameResultBox.appendChild(gameResult);
+    gameResultBox.appendChild(playAgainButton);
 }
 
