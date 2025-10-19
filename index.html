@@ -13,29 +13,33 @@
 <body>
     <div id="endOfGame"></div>
     <div id="buttonBox">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
     </div>
         
     <div id="computerChoice">
-    </div>
-    <div id="runningScore">
-        <p></p> 
     </div>
 
     <div class="playerContainer">
         <div class="playerName">NAME</div>
         <div class="rpsContainer">
-            <button class="rpsButton">rock</button>            
-            <button class="rpsButton">rock</button>
-            <button class="rpsButton">rock</button>
+            <button class="rpsButton" id="rock">Rock</button>            
+            <button class="rpsButton" id="paper">Paper</button>
+            <button class="rpsButton" id="scissors">Scissors</button>
         </div>
         <div class="scoreContainer">
             <div class="scoreTitle">Score</div>
-            <div class="scoreNumber">0</div>
+            <div class="scoreNumber" id="humanScore"></div>
         </div>
     </div>
-    <div class="roundResult">It was a tie!</div>
+    <div class="playerContainer">
+        <div class="playerName">NAME</div>
+        <div class="rpsContainer">
+            
+        </div>
+        <div class="scoreContainer">
+            <div class="scoreTitle" id="computerScore">Score</div>
+            <div class="scoreNumber"></div>
+        </div>
+    </div>
+    <div id="roundResult"></div>
 </body>
 </html>
