@@ -1,12 +1,9 @@
 const computerResult = document.querySelector("#computerChoice");
 
-const buttonBox = document.querySelector('#buttonBox');
+const rpsContainer = document.querySelector('#rpsContainer');
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorBtn = document.querySelector('#scissors');
-
-const roundBox = document.querySelector('#round');
-const roundNum = document.createElement('p');
 
 const gameResultBox = document.querySelector('#endOfGame');
 const gameResult = document.createElement('p');
@@ -16,12 +13,14 @@ playAgainButton.id = 'playAgain';
 let humanScore = 0;
 let computerScore = 0;
 let tieScore = 0;
-const runningScore = document.querySelector('#runningScore');
-const hScore = document.createElement('p');
-const cScore = document.createElement('p');
-const tScore = document.createElement('p');
 
-const computerChoiceElement = document.createElement('p');
+const humanPoints = document.querySelector('#humanScore');
+const computerPoints = document.querySelector('#computerScore');
+const hPoints = document.createElement('p');
+const cPoints = document.createElement('p');
+
+const roundResultContainer = document.querySelector('#roundResult');
+const roundResult = document.createElement('p');
 
 
 rockBtn.addEventListener('click', () => {
@@ -56,6 +55,7 @@ function playRound(humanChoice, computerChoice){
     let winner = '';
     if (humanChoice == computerChoice){
         tieScore++;
+        winner = "Tie";
     } else if (humanChoice == "rock" && computerChoice != "paper"){
         console.log("Human won.");
         humanScore++;
@@ -73,20 +73,25 @@ function playRound(humanChoice, computerChoice){
         computerScore++;
         winner = 'Computer';
     }
-    addComputerResult(computerChoice);
+    updateRoundResult(winner);
     updateRunningScore(humanScore, computerScore, tieScore);
 }
 
-function addComputerResult(computerChoice){
-    computerChoiceElement.textContent = `Computer chose ${computerChoice}.`;
- computerResult.appendChild(computerChoiceElement);
+function updateRoundResult(winner){
+    let w = winner;
+    if (w.toLowerCase() == 'tie'){
+        roundResult.textContent = `It was a tie!`;
+    } else {
+        roundResult.textContent = `The ${w} won!`;
+    }
+    roundResultContainer.appendChild(roundResult);
 }
 
 function updateRunningScore(humanScore, computerScore){
-    hScore.textContent = `Your score = ${humanScore}`;
-    cScore.textContent = `Computer's score = ${computerScore}`;
-    tScore.textContent = `Ties = ${tieScore}`;
-    runningScore.append(hScore, cScore, tScore);
+    hPoints.textContent = `${humanScore}`;
+    cPoints.textContent = `${computerScore}`;
+    humanPoints.appendChild(hPoints);
+    computerPoints.appendChild(cPoints);
     checkScore();
 }
 
@@ -107,7 +112,7 @@ function checkScore(){
 
 function gameWonMessage(winner){
  computerResult.classList.add('hidden');
-    buttonBox.classList.add('hidden');
+    rpsContainer.classList.add('hidden');
     gameResultBox.classList.remove('hidden');
     gameResult.textContent = `Game over! The winner is the ${winner}.`;
     playAgainButton.textContent = 'Play Again';
@@ -118,7 +123,7 @@ function gameWonMessage(winner){
 function playGame(){
     computerChoiceElement.textContent = '';
  computerResult.classList.remove('hidden');
-    buttonBox.classList.remove('hidden');
+    rpsContainer.classList.remove('hidden');
     gameResultBox.classList.add('hidden');
     updateRunningScore(0, 0, 0);
 }
