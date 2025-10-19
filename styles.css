@@ -140,7 +140,7 @@ body{
 }
 
 #roundResult p {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 #playAgainContainer{
@@ -152,7 +152,7 @@ body{
 }
 
 #playAgainContainer p{
-    font-size: 14px;
+    font-size: 24px;
 }
 
 #playAgainContainer button {
