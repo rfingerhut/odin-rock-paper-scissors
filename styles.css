@@ -18,14 +18,16 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
     border: 1px solid black;
 }
 
 .playerContainer{
-    border: 1px solid red;
+    border: 1px solid green;
     width: 100%;
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
     padding: 5% 2%;
@@ -41,14 +43,16 @@ body{
 
 .rpsContainer {
     display: flex;
+    min-height: 160px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex: 1;
-    gap: 32px;
+    gap: 5px;
     width: 100%;
     padding: 12px 0px;
     border: 1px solid blue;
+    flex-wrap: wrap;
 }
 
 .hidden{
@@ -56,17 +60,46 @@ body{
 }
 
 .rpsContainer button, #playAgain{
-    padding: 12px 5px;
+    padding: 12px 10px;
     width: 100%;
     border-radius: 40px;
     border: 0px;
     background-color:rgb(63, 154, 240);
     color: white;
-    font-size: 16px;
 }
 
 .rpsContainer button, #playAgain:hover{
     background-color:rgb(106, 170, 230);
+}
+
+.rpsContainer button {
+    max-height: 52px;
+    width: 350px;
+    max-width: 350px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    flex: 1;
+}
+
+.rpsContainer button>p{
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    align-self: center;
+    flex-wrap: wrap;
+}
+
+.emoji{
+    font-size: 48px;
+    width: 100px;
+    text-align: right;
+    align-self: center;
+    padding: 0;
+    margin: 0;
 }
 
 .scoreContainer{
