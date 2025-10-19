@@ -1,4 +1,4 @@
-const rpsContainer = document.querySelector('.rpsContainer');
+const rpsContainer = document.querySelectorAll('.rpsContainer');
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorBtn = document.querySelector('#scissors');
@@ -110,7 +110,7 @@ function checkScore(){
 }
 
 function gameWonMessage(winner){
-    rpsContainer.classList.add('hidden');
+    rpsContainer.forEach((el)=>el.classList.add('hidden'));
     playAgainContainer.classList.remove('hidden');
     gameResult.textContent = `Game over! The winner is the ${winner}.`;
     playAgainButton.textContent = 'Play Again';
@@ -119,7 +119,7 @@ function gameWonMessage(winner){
 }
 
 function playGame(){
-    rpsContainer.classList.remove('hidden');
+    rpsContainer.forEach((el) => el.classList.remove('hidden'));
     playAgainContainer.classList.add('hidden');
     updateRunningScore(0, 0);
 }

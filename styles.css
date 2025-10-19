@@ -7,14 +7,36 @@
 }
 
 body{
-    margin: 32px auto;
+    width: 100%;
+    padding: 5% 2%;
+    border: 1px solid pink;
+    display: flex;
+    flex-direction: column;
+}
+
+.rpsPlayers{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.playerContainer{
+    border: 1px solid red;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 32px;
-    max-width: 100%;
-    padding: 5% 20%;
+    padding: 5% 2%;
+}
+
+.playerName{
+    font-weight: 700;
+    font-size: 48px;
+    border: 1px solid blue;
+    width: 100%;
+    text-align: center;
 }
 
 .rpsContainer {
@@ -25,6 +47,8 @@ body{
     flex: 1;
     gap: 32px;
     width: 100%;
+    padding: 12px 0px;
+    border: 1px solid blue;
 }
 
 .hidden{
@@ -43,4 +67,57 @@ body{
 
 .rpsContainer button, #playAgain:hover{
     background-color:rgb(106, 170, 230);
+}
+
+.scoreContainer{
+    border: 1px solid blue;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 36px;
+}
+
+.scoreTitle, .scoreNumber{
+    font-size: 24px;
+    border: 1px solid green;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.scoreTitle{
+    text-decoration: underline;
+}
+
+.scoreNumber p{
+    font-size: 24px;
+    width: 100%;
+}
+
+#roundResult{
+    border: 2px solid black;
+    justify-items: center;
+    margin: 14px 0;
+    padding: 14px;
+}
+
+#roundResult p {
+    font-size: 14px;
+}
+
+#playAgainContainer{
+    border: 1px solid orange;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2% 0;
+}
+
+#playAgainContainer p{
+    font-size: 14px;
+}
+
+#playAgainContainer button {
+    max-width: 160px;
+    margin-top: 14px;
 }
