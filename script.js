@@ -6,7 +6,19 @@ const scissorBtn = document.querySelector('#scissors');
 const roundBox = document.querySelector('#round');
 const roundNum = document.createElement('p');
 
+const gameResultBox = document.querySelector('#gameResult');
+const gameResult = document.createElement('p');
+const playAgainButton = document.createElement('button');
+playAgainButton.id = 'playAgain';
+const buttonBox = document.querySelector('#choice');
 
+let humanScore = 0;
+let computerScore = 0;
+const runningScore = document.querySelector('#runningScore');
+const hScore = document.createElement('p');
+const cScore = document.createElement('p');
+
+const computerChoiceElement = document.createElement('p');
 
 rockBtn.addEventListener('click', () => {
     playRound('rock', getComputerChoice());
@@ -30,12 +42,6 @@ function getComputerChoice(){
         return "paper";
     }
 }
-
-let humanScore = 0;
-let computerScore = 0;
-const runningScore = document.querySelector('#runningScore');
-const hScore = document.createElement('p');
-const cScore = document.createElement('p');
 
 function updateRunningScore(humanScore, computerScore){
     hScore.textContent = `Your score: ${humanScore}`;
@@ -89,18 +95,11 @@ function playGame(){
     playRound(getHumanChoice(), getComputerChoice());
 }
 
-const computerChoiceElement = document.createElement('p');
 
 function addComputerResult(computerChoice){
     computerChoiceElement.textContent = `Computer chose ${computerChoice}.`;
     resultBox.appendChild(computerChoiceElement);
 }
-
-const gameResultBox = document.querySelector('#gameResult');
-const gameResult = document.createElement('p');
-const playAgainButton = document.createElement('button');
-playAgainButton.id = 'playAgain';
-const buttonBox = document.querySelector('#choice');
 
 function gameWonMessage(winner){
     resultBox.remove();
