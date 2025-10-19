@@ -90,7 +90,6 @@ function updateRunningScore(humanScore, computerScore){
     cPoints.textContent = `${computerScore}`;
     humanPoints.appendChild(hPoints);
     computerPoints.appendChild(cPoints);
-    //checkScore();
 }
 
 function checkScore(){
