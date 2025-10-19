@@ -23,7 +23,7 @@ body{
     padding: 40px 16px;
 }
 
-#buttonBox {
+.rpsContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -37,7 +37,7 @@ body{
     display: none !important;
 }
 
-#buttonBox button, #playAgain{
+.rpsContainer button, #playAgain{
     padding: 12px 5px;
     width: 100%;
     border-radius: 40px;
@@ -47,6 +47,6 @@ body{
     font-size: 16px;
 }
 
-#buttonBox button, #playAgain:hover{
+.rpsContainer button, #playAgain:hover{
     background-color:rgb(106, 170, 230);
 }
