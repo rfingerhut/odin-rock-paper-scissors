@@ -119,6 +119,7 @@ function gameWonMessage(winner){
 }
 
 function playGame(){
+    roundResult.textContent = '';
     rpsContainer.forEach((el) => el.classList.remove('hidden'));
     playAgainContainer.classList.add('hidden');
     updateRunningScore(0, 0);
