@@ -52,8 +52,8 @@ body{
 }
 
 .playerName{
-    font-weight: 700;
-    font-size: 48px;
+    font-weight: 300;
+    font-size: 36px;
     border: 1px solid blue;
     width: 100%;
     text-align: center;
@@ -140,7 +140,7 @@ body{
 }
 
 .scoreTitle, .scoreNumber{
-    font-size: 24px;
+    font-size: 18px;
     border: 1px solid green;
     margin: 0;
     width: 100%;
@@ -164,7 +164,7 @@ body{
 }
 
 #roundResult p {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 #playAgainContainer{
