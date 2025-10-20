@@ -50,7 +50,29 @@ function getComputerChoice(){
     }
 }
 
+const choiceImageWrapper = document.querySelector('#choiceImageWrapper');
+const computerChoiceImage = document.createElement('span');
+
+function updateComputerChoiceImage(choice){
+    let c = choice;
+    switch (c){
+        case 'rock':
+            computerChoiceImage.textContent = '✊';
+            break;
+        case 'paper':
+            console.log('paper')
+            computerChoiceImage.textContent = '✋';
+            break;
+        case 'scissors':
+            console.log('scissors')
+            computerChoiceImage.textContent = '✌️';
+            break;
+    }
+    choiceImageWrapper.appendChild(computerChoiceImage);
+}
+
 function playRound(humanChoice, computerChoice){
+    updateComputerChoiceImage(computerChoice);
     let winner = '';
     if (humanChoice == computerChoice){
         tieScore++;
