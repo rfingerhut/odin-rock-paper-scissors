@@ -3,6 +3,8 @@ const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorBtn = document.querySelector('#scissors');
 
+const directionsContainer = document.querySelector('#directionsContainer');
+
 const playAgainContainer = document.querySelector('#playAgainContainer');
 const gameResult = document.createElement('p');
 const playAgainButton = document.createElement('button');
@@ -110,6 +112,7 @@ function checkScore(){
 
 function gameWonMessage(winner){
     rpsContainer.forEach((el)=>el.classList.add('hidden'));
+    directionsContainer.classList.add('hidden');
     playAgainContainer.classList.remove('hidden');
     gameResult.textContent = `Game over! The winner is the ${winner}.`;
     playAgainButton.textContent = 'Play Again';
@@ -120,6 +123,7 @@ function gameWonMessage(winner){
 function playGame(){
     roundResult.textContent = '';
     rpsContainer.forEach((el) => el.classList.remove('hidden'));
+    directionsContainer.classList.remove('hidden');
     playAgainContainer.classList.add('hidden');
     updateRunningScore(0, 0);
 }
