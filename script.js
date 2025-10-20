@@ -14,6 +14,10 @@ const humanPoints = document.querySelector('#humanScore');
 const computerPoints = document.querySelector('#computerScore');
 const hPoints = document.createElement('p');
 const cPoints = document.createElement('p');
+hPoints.textContent='0';
+cPoints.textContent='0';
+humanPoints.appendChild(hPoints);
+computerPoints.appendChild(cPoints);
 
 const roundResultContainer = document.querySelector('#roundResult');
 const roundResult = document.createElement('p');
@@ -112,8 +116,6 @@ function updateRoundResult(winner){
 function updateRunningScore(humanScore, computerScore){
     hPoints.textContent = `${humanScore}`;
     cPoints.textContent = `${computerScore}`;
-    humanPoints.appendChild(hPoints);
-    computerPoints.appendChild(cPoints);
 }
 
 function checkScore(){
