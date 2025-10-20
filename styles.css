@@ -9,7 +9,7 @@
 body{
     width: 100%;
     padding: 5% 2%;
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
     display: flex;
     flex-direction: column;
 }
@@ -38,11 +38,11 @@ body{
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .playerContainer{
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 100%;
     display: flex;
     flex: 1;
@@ -54,7 +54,7 @@ body{
 .playerName{
     font-weight: 300;
     font-size: 36px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 100%;
     text-align: center;
 }
@@ -69,7 +69,7 @@ body{
     gap: 5px;
     width: 100%;
     padding: 12px 0px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     flex-wrap: wrap;
 }
 
@@ -132,16 +132,18 @@ body{
 }
 
 .scoreContainer{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 100%;
     display: flex;
     flex-direction: column;
     min-height: 36px;
+    margin-top: 18px;
+
 }
 
 .scoreTitle, .scoreNumber{
     font-size: 18px;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     margin: 0;
     width: 100%;
     text-align: center;
@@ -157,7 +159,7 @@ body{
 }
 
 #roundResult{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     justify-items: center;
     margin: 14px 0;
     padding: 14px;
@@ -168,7 +170,7 @@ body{
 }
 
 #playAgainContainer{
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
     width: 100%;
     display: flex;
     flex-direction: column;
