@@ -138,6 +138,10 @@ body{
     border-radius:24px;
 }
 
+#computerChoice{
+    min-height: 200px;
+}
+
 #choiceImageWrapper span{
     font-size: 10em;
 }
