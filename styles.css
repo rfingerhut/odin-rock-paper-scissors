@@ -110,13 +110,20 @@ body{
     padding: 0;
 }
 
+.emojiWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+}
+
 .emoji{
-    font-size: 48px;
+    font-size: 3em;
     display: inline-block;
     padding: 0;
     margin: 0;
-    transform: none;
-    width: 40px;
     transform: rotate(-90deg) scaleY(-1);
 }
 
