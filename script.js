@@ -144,6 +144,7 @@ function gameWonMessage(winner){
 
 function playGame(){
     roundResult.textContent = '';
+    computerChoiceImage.textContent = '';
     rpsContainer.forEach((el) => el.classList.remove('hidden'));
     directionsContainer.classList.remove('hidden');
     playAgainContainer.classList.add('hidden');
