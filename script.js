@@ -75,8 +75,28 @@ function updateComputerChoiceImage(choice){
     choiceImageWrapper.appendChild(computerChoiceImage);
 }
 
+const humanChoiceImageWrapper = document.querySelector('#humanChoiceImageWrapper');
+const humanChoiceImage = document.createElement('span');
+
+function updateHumanChoiceImage(choice){
+    let c = choice;
+    switch (c){
+        case 'rock':
+            humanChoiceImage.textContent = '✊';
+            break;
+        case 'paper':
+            humanChoiceImage.textContent = '✋';
+            break;
+        case 'scissors':
+            humanChoiceImage.textContent = '✌️';
+            break;
+    }
+    humanChoiceImageWrapper.appendChild(humanChoiceImage);
+}
+
 function playRound(humanChoice, computerChoice){
     updateComputerChoiceImage(computerChoice);
+    updateHumanChoiceImage(humanChoice);
     let winner = '';
     if (humanChoice == computerChoice){
         tieScore++;
