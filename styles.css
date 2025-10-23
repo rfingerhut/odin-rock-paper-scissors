@@ -209,6 +209,7 @@ body{
 
 #playAgainContainer p{
     font-size: 24px;
+    padding: 36px 0px;
 }
 
 #playAgainContainer button {

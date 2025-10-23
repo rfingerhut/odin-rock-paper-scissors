@@ -124,6 +124,7 @@ const computer = document.querySelector('#computerChoice');
 
 
 function updateRoundResult(winner){
+    roundResultContainer.classList.remove('hidden');
     let w = winner.toLowerCase();
     switch (w){
         case 'tie':
@@ -165,6 +166,7 @@ function checkScore(){
 
 function gameWonMessage(winner){
     rpsContainer.forEach((el)=>el.classList.add('hidden'));
+    roundResultContainer.classList.add('hidden');
     directionsContainer.classList.add('hidden');
     playAgainContainer.classList.remove('hidden');
     gameResult.textContent = `Game over! The winner is the ${winner}.`;
@@ -175,6 +177,7 @@ function gameWonMessage(winner){
 
 function playGame(){
     roundResult.textContent = '';
+    roundResultContainer.classList.add('hidden');
     computerChoiceImage.textContent = '';
     humanChoiceImage.textContent = '';
     computer.classList.remove('winner');
