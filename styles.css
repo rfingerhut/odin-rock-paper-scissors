@@ -115,7 +115,7 @@ body{
     padding: 0;
 }
 
-.emojiWrapper, #choiceImageWrapper{
+.emojiWrapper, #choiceImageWrapper, #humanChoiceImageWrapper{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,16 +124,20 @@ body{
     margin: 0;
 }
 
-#choiceImageWrapper {
+#choiceImageWrapper, #humanChoiceImageWrapper {
     width: 20em;
 }
 
-.emoji, #choiceImageWrapper span{
+.emoji, #choiceImageWrapper span, #humanChoiceImageWrapper span{
     font-size: 3em;
     display: inline-block;
     padding: 0;
     margin: 0;
     transform: rotate(-90deg) scaleY(-1);
+}
+
+#humanChoiceImageWrapper span{
+    font-size: 10em;
 }
 
 .rpsContainer{
@@ -208,4 +212,8 @@ body{
 
 #playAgain{
     font-size: 20px;
+}
+
+.winner{
+    background-color: yellow;
 }

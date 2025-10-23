@@ -98,6 +98,8 @@ function playRound(humanChoice, computerChoice){
     updateComputerChoiceImage(computerChoice);
     updateHumanChoiceImage(humanChoice);
     let winner = '';
+    computer.classList.remove('winner');
+    human.classList.remove('winner');
     if (humanChoice == computerChoice){
         tieScore++;
         winner = "Tie";
@@ -123,14 +125,32 @@ function playRound(humanChoice, computerChoice){
     checkScore();
 }
 
+const human = document.querySelector('#left');
+const computer = document.querySelector('#computerChoice');
+
+
 function updateRoundResult(winner){
-    let w = winner;
-    if (w.toLowerCase() == 'tie'){
-        roundResult.textContent = `It was a tie!`;
-    } else {
-        roundResult.textContent = `The ${w} won!`;
+    let w = winner.toLowerCase();
+    switch (w){
+        case 'tie':
+            roundResult.textContent = 'It was a tie!';
+            break;
+        case 'computer':
+            roundResult.textContent=`The ${w} won!`;
+            computer.classList.add('winner');
+            break;
+        case 'human':
+            roundResult.textContent = `The ${w} won!`;
+            human.classList.add('winner');
+            break;
     }
+    // if (w.toLowerCase() == 'tie'){
+    //     roundResult.textContent = `It was a tie!`;
+    // } else {
+    //     roundResult.textContent = `The ${w} won!`;
+    // }
     roundResultContainer.appendChild(roundResult);
+
 }
 
 function updateRunningScore(humanScore, computerScore){
