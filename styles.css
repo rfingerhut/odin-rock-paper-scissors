@@ -74,6 +74,10 @@ body{
     flex-wrap: wrap;
 }
 
+#humanChoiceButtons{
+    border: none;
+}
+
 .hidden{
     display: none !important;
 }
