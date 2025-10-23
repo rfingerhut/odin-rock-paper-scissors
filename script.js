@@ -95,9 +95,9 @@ function updateHumanChoiceImage(choice){
 function playRound(humanChoice, computerChoice){
     updateComputerChoiceImage(computerChoice);
     updateHumanChoiceImage(humanChoice);
-    let winner = '';
     computer.classList.remove('winner');
     human.classList.remove('winner');
+    let winner = '';
     if (humanChoice == computerChoice){
         tieScore++;
         winner = "Tie";
@@ -139,7 +139,6 @@ function updateRoundResult(winner){
             break;
     }
     roundResultContainer.appendChild(roundResult);
-
 }
 
 function updateRunningScore(humanScore, computerScore){
@@ -176,6 +175,8 @@ function playGame(){
     roundResult.textContent = '';
     computerChoiceImage.textContent = '';
     humanChoiceImage.textContent = '';
+    computer.classList.remove('winner');
+    human.classList.remove('winner');
     rpsContainer.forEach((el) => el.classList.remove('hidden'));
     directionsContainer.classList.remove('hidden');
     playAgainContainer.classList.add('hidden');
