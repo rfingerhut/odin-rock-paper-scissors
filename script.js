@@ -128,6 +128,8 @@ function updateRoundResult(winner){
     switch (w){
         case 'tie':
             roundResult.textContent = 'It was a tie!';
+            human.classList.add('winner');
+            computer.classList.add('winner');
             break;
         case 'computer':
             roundResult.textContent=`The ${w} won!`;
