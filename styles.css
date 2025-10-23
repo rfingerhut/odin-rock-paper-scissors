@@ -150,6 +150,10 @@ body{
     min-height: 200px;
 }
 
+#humanChoiceImageWrapper{
+    min-height: 200px;
+}
+
 #choiceImageWrapper span{
     font-size: 10em;
 }
@@ -186,6 +190,7 @@ body{
     justify-items: center;
     margin: 14px 0;
     padding: 14px;
+    min-height: 57px;
 }
 
 #roundResult p {
