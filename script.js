@@ -64,11 +64,9 @@ function updateComputerChoiceImage(choice){
             computerChoiceImage.textContent = '✊';
             break;
         case 'paper':
-            console.log('paper')
             computerChoiceImage.textContent = '✋';
             break;
         case 'scissors':
-            console.log('scissors')
             computerChoiceImage.textContent = '✌️';
             break;
     }
@@ -104,19 +102,15 @@ function playRound(humanChoice, computerChoice){
         tieScore++;
         winner = "Tie";
     } else if (humanChoice == "rock" && computerChoice != "paper"){
-        console.log("Human won.");
         humanScore++;
         winner = 'Human';
     } else if (humanChoice == "paper" && computerChoice != "scissors"){
-        console.log("Human won.");
         humanScore++;
         winner = 'Human';
     } else if (humanChoice == "scissors" && computerChoice != "rock"){
-        console.log("Human won.");
         humanScore++;
         winner = 'Human';
     } else {
-        console.log("Computer won.");
         computerScore++;
         winner = 'Computer';
     }
@@ -144,11 +138,6 @@ function updateRoundResult(winner){
             human.classList.add('winner');
             break;
     }
-    // if (w.toLowerCase() == 'tie'){
-    //     roundResult.textContent = `It was a tie!`;
-    // } else {
-    //     roundResult.textContent = `The ${w} won!`;
-    // }
     roundResultContainer.appendChild(roundResult);
 
 }
@@ -161,7 +150,6 @@ function updateRunningScore(humanScore, computerScore){
 function checkScore(){
     let gameWinner = '';
     if (humanScore == 5 || computerScore == 5){
-        console.log('EQUAL FIVE');
         if (humanScore > computerScore){
             gameWinner = 'human';
         } else {
